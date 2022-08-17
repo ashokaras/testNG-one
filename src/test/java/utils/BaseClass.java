@@ -76,4 +76,8 @@ public class BaseClass {
         element.sendKeys(input);
     }
 
+    public boolean elementExists(WebElement element){
+        return element.isDisplayed();
+    }
+
 }

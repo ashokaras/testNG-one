@@ -8,7 +8,7 @@ import utils.BaseClass;
 public class TC001_Edit extends BaseClass {
 
     @Test
-    public void Edit_Feature(){
+    public void Edit_Features(){
         HomePage homePage = new HomePage(driver);
         EditPage editPage = new EditPage(driver);
 
@@ -20,5 +20,4 @@ public class TC001_Edit extends BaseClass {
         System.out.println("Is the field disabled: " + editPage.txt_Disabled.getAttribute("disabled"));
 
     }
-
 }
