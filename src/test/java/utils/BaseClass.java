@@ -1,8 +1,13 @@
 package utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -15,20 +20,27 @@ public class BaseClass {
 
     private String url;
     private String browserName;
-    WebDriver driver;
+    public WebDriver driver;
     static Properties properties;
 
     @BeforeClass
     public void launchBrowser() throws IOException {
-        switch (getProperty(browserName)){
+        switch (getProperty("browserName")){
             case "chrome":
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
             break;
             case "ie":
+                WebDriverManager.iedriver().setup();
                 driver = new InternetExplorerDriver();
             break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
             default:
                 System.out.println("Setting chrome as default since there are no browser names provided as input.");
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
         }
         driver.manage().window().maximize();
@@ -50,6 +62,18 @@ public class BaseClass {
     public static String getProperty(String property) throws IOException {
         loadProperties();
         return properties.getProperty(property);
+    }
+
+    public void click(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
+
+    public void type(WebElement element, String input){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.sendKeys(input);
     }
 
 }
