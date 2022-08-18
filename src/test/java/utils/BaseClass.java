@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -71,14 +72,14 @@ public class BaseClass extends ReporterClass{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
-        stepPass(elementName + "is clicked");
+        stepPass(elementName + " is clicked");
     }
 
     public void type(WebElement element, String input, String elementName){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.sendKeys(input);
-        stepPass(input + "text is entered in the " + elementName);
+        stepPass(input + " text is entered in the " + elementName);
     }
 
     public int returnNumberOfElements(String tagName){
@@ -92,6 +93,34 @@ public class BaseClass extends ReporterClass{
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void dropdownText(WebElement element, String text){
+        Select select = new Select(element);
+        select.selectByVisibleText(text);
+    }
+
+    public void dropdownValue(WebElement element, String value){
+        Select select = new Select(element);
+        select.selectByValue(value);
+    }
+
+    public void dropdownIndex(WebElement element, int index){
+        Select select = new Select(element);
+        select.selectByIndex(index);
+    }
+
+    public void comboBox(List<WebElement> list, String select){
+        for(int i=1; i<list.size(); i++){
+            if(list.get(i).getText().contains(select)){
+                list.get(i).click();
+            }
+        }
+    }
+
+    public int dropdownOptions(WebElement element){
+        Select select = new Select(element);
+        return select.getOptions().size();
     }
 
     public boolean elementExists(WebElement element){ return element.isDisplayed();}
