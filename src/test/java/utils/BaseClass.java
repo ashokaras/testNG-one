@@ -1,6 +1,7 @@
 package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,6 +15,7 @@ import org.testng.annotations.BeforeClass;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.Properties;
 
 public class BaseClass {
@@ -76,8 +78,15 @@ public class BaseClass {
         element.sendKeys(input);
     }
 
-    public boolean elementExists(WebElement element){
-        return element.isDisplayed();
+    public int returnNumberOfElements(String tagName){
+        List<WebElement> list = driver.findElements(By.tagName(tagName));
+        return list.size();
     }
+
+    public boolean elementExists(WebElement element){ return element.isDisplayed();}
+    public String getPageTitle(){ return driver.getTitle();}
+    public void navigateBack(){ driver.navigate().back();}
+    public void navigateFront(){ driver.navigate().forward();}
+    public String getPageURL(){ return driver.getCurrentUrl();}
 
 }
