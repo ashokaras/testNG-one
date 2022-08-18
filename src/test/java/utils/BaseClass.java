@@ -20,8 +20,6 @@ import java.util.Properties;
 
 public class BaseClass {
 
-    private String url;
-    private String browserName;
     public WebDriver driver;
     static Properties properties;
 

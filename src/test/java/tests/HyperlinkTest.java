@@ -5,7 +5,7 @@ import pageObjects.HomePage;
 import pageObjects.HyperlinkPage;
 import utils.BaseClass;
 
-public class TC003_Hyperlink extends BaseClass {
+public class HyperlinkTest extends BaseClass {
 
     @Test
     public void hyperlinkFeatures(){
@@ -13,10 +13,10 @@ public class TC003_Hyperlink extends BaseClass {
         HomePage homePage = new HomePage(driver);
         HyperlinkPage hyperlinkPage = new HyperlinkPage(driver);
 
-        click(homePage.btn_HyperLink);
+        click(homePage.btnHyperLink);
         click(hyperlinkPage.lnk_Home);
-        elementExists(homePage.btn_HyperLink);
-        click(homePage.btn_HyperLink);
+        elementExists(homePage.btnHyperLink);
+        click(homePage.btnHyperLink);
 
         click(hyperlinkPage.lnk_Navigation);
         System.out.println("Navigated to: " + getPageTitle());
@@ -31,8 +31,8 @@ public class TC003_Hyperlink extends BaseClass {
         navigateBack();
 
         click(hyperlinkPage.lnk_HomeLinkName);
-        elementExists(homePage.btn_HyperLink);
-        click(homePage.btn_HyperLink);
+        elementExists(homePage.btnHyperLink);
+        click(homePage.btnHyperLink);
 
         System.out.println("Total number of links in page: " + returnNumberOfElements("a"));
 

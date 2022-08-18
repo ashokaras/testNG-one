@@ -5,7 +5,7 @@ import pageObjects.ButtonPage;
 import pageObjects.HomePage;
 import utils.BaseClass;
 
-public class TC002_Button extends BaseClass {
+public class Button_Test extends BaseClass {
 
     @Test
     public void buttonFeatures(){
@@ -13,10 +13,10 @@ public class TC002_Button extends BaseClass {
         HomePage homePage = new HomePage(driver);
         ButtonPage buttonPage = new ButtonPage(driver);
 
-        click(homePage.btn_Button);
+        click(homePage.btnButton);
         click(buttonPage.btn_BackToHome);
-        elementExists(homePage.btn_Button);
-        click(homePage.btn_Button);
+        elementExists(homePage.btnButton);
+        click(homePage.btnButton);
 
         System.out.println("Button position in the page: " + buttonPage.btn_Position.getLocation());
 
