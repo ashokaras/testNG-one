@@ -18,13 +18,16 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
 
-public class BaseClass {
+public class BaseClass extends ReporterClass{
 
     public WebDriver driver;
     static Properties properties;
 
     @BeforeClass
     public void launchBrowser() throws IOException {
+
+        createTest(this.getClass().toString().substring(12));
+
         switch (getProperty("browserName")){
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -64,16 +67,18 @@ public class BaseClass {
         return properties.getProperty(property);
     }
 
-    public void click(WebElement element){
+    public void click(WebElement element, String elementName){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
+        stepPass(elementName + "is clicked");
     }
 
-    public void type(WebElement element, String input){
+    public void type(WebElement element, String input, String elementName){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.sendKeys(input);
+        stepPass(input + "text is entered in the " + elementName);
     }
 
     public int returnNumberOfElements(String tagName){

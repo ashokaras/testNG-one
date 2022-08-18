@@ -13,9 +13,9 @@ public class Image_Test extends BaseClass {
         HomePage homePage = new HomePage(driver);
         ImagePage imagePage = new ImagePage(driver);
 
-        click(homePage.btnImage);
+        click(homePage.btnImage, "Image button");
         elementExists(imagePage.imgHome);
-        click(imagePage.imgHome);
+        click(imagePage.imgHome, "Home image");
         navigateBack();
 
         if(Integer.valueOf(imagePage.imgBroken.getAttribute("naturalWidth"))==0){

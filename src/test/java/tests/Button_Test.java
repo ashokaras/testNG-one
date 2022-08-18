@@ -13,10 +13,10 @@ public class Button_Test extends BaseClass {
         HomePage homePage = new HomePage(driver);
         ButtonPage buttonPage = new ButtonPage(driver);
 
-        click(homePage.btnButton);
-        click(buttonPage.btn_BackToHome);
+        click(homePage.btnButton, "Button button");
+        click(buttonPage.btn_BackToHome, "Back to home button");
         elementExists(homePage.btnButton);
-        click(homePage.btnButton);
+        click(homePage.btnButton, "Button button");
 
         System.out.println("Button position in the page: " + buttonPage.btn_Position.getLocation());
 
