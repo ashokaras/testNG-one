@@ -81,10 +81,19 @@ public class BaseClass {
         return list.size();
     }
 
+    public void wait(int milliSeconds){
+        try{
+            Thread.sleep(milliSeconds);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public boolean elementExists(WebElement element){ return element.isDisplayed();}
     public String getPageTitle(){ return driver.getTitle();}
     public void navigateBack(){ driver.navigate().back();}
     public void navigateFront(){ driver.navigate().forward();}
     public String getPageURL(){ return driver.getCurrentUrl();}
+
 
 }

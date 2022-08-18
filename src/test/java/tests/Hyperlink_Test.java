@@ -5,7 +5,7 @@ import pageObjects.HomePage;
 import pageObjects.HyperlinkPage;
 import utils.BaseClass;
 
-public class HyperlinkTest extends BaseClass {
+public class Hyperlink_Test extends BaseClass {
 
     @Test
     public void hyperlinkFeatures(){

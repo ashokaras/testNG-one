@@ -5,7 +5,7 @@ import pageObjects.EditPage;
 import pageObjects.HomePage;
 import utils.BaseClass;
 
-public class EditTest extends BaseClass {
+public class Edit_Test extends BaseClass {
 
     @Test
     public void Edit_Features(){
