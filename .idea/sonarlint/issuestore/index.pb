@@ -13,5 +13,3 @@ W
 'src/test/java/tests/Hyperlink_Test.java,7\9\79e2d06aeb28f682283bab424b733462caf44513
 [
 +src/main/java/pageObjects/DropdownPage.java,7\8\78c333abd0f127b0defeeb07963776e19aca5cf8
-V
-&src/test/java/tests/Dropdown_Test.java,d\2\d2b17883f004fff082a4e7385d4834c4e4e3caa4
