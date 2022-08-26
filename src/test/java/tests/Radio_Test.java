@@ -13,7 +13,7 @@ public class Radio_Test extends BaseClass {
         HomePage homePage = new HomePage(driver);
         RadioPage radioPage = new RadioPage(driver);
 
-        
+        pageNavigation(homePage.btnRadio, "Radio button", radioPage.pageTitle);
 
     }
 

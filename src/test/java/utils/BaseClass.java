@@ -50,6 +50,11 @@ public class BaseClass extends ReporterClass{
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.get(getProperty("url"));
+        if(driver.findElement(By.xpath("//h1[@class='wp-heading']")).isDisplayed()){
+            stepPass("Home page is displayed successfully.");
+        }else{
+            stepFail("Home page is not displayed");
+        }
     }
 
     @AfterClass
@@ -121,6 +126,18 @@ public class BaseClass extends ReporterClass{
     public int dropdownOptions(WebElement element){
         Select select = new Select(element);
         return select.getOptions().size();
+    }
+
+    public void pageNavigation(WebElement sourceElement, String pageName, WebElement targetElement){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(sourceElement));
+        sourceElement.click();
+        stepPass(pageName + " link is clicked successfully.");
+        if(targetElement.isDisplayed()){
+            stepPass("User navigated to " + pageName + " page successfully.");
+        }else{
+            stepFail("User is not navigated to " + pageName + " page.");
+        }
     }
 
     public boolean elementExists(WebElement element){ return element.isDisplayed();}
