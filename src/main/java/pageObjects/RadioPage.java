@@ -15,12 +15,12 @@ public class RadioPage {
     }
 
     @FindBy (xpath = "//h1[@class='wp-heading']") public WebElement pageTitle;
-    @FindBy (xpath = "") public WebElement rdoOneYes;
-    @FindBy (xpath = "") public WebElement rdoOneNo;
-    @FindBy (xpath = "") public WebElement rdoTwoChecked;
-    @FindBy (xpath = "") public WebElement rdoTwoUnchecked;
-    @FindBy (xpath = "") public WebElement rdoThreeOne;
-    @FindBy (xpath = "") public WebElement rdoThreeTwo;
-    @FindBy (xpath = "") public WebElement rdoThreeThree;
+    @FindBy (xpath = "//input[@class='myradio' and @id='yes']") public WebElement rdoOneYes;
+    @FindBy (xpath = "//input[@class='myradio' and @id='no']") public WebElement rdoOneNo;
+    @FindBy (xpath = "//input[@name='news' and @value='1']") public WebElement rdoTwoChecked;
+    @FindBy (xpath = "//input[@name='news' and @value='0']") public WebElement rdoTwoUnchecked;
+    @FindBy (xpath = "//input[@class='myradio' and @name='age' and @value='0']") public WebElement rdoThreeOne;
+    @FindBy (xpath = "//input[@class='myradio' and @name='age' and @value='1']") public WebElement rdoThreeTwo;
+    @FindBy (xpath = "//input[@class='myradio' and @name='age' and @value='2']") public WebElement rdoThreeThree;
 
 }

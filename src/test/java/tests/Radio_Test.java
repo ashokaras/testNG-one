@@ -15,6 +15,21 @@ public class Radio_Test extends BaseClass {
 
         pageNavigation(homePage.btnRadio, "Radio button", radioPage.pageTitle);
 
+        if(!radioPage.rdoOneYes.isSelected()){
+            radioPage.rdoOneYes.click();
+        }
+        if(!radioPage.rdoOneNo.isSelected()){
+            radioPage.rdoOneNo.click();
+        }
+
+        if(radioPage.rdoTwoChecked.isSelected()){
+            stepPass("Checked is selected by default");
+        }
+
+        if(!radioPage.rdoThreeThree.isSelected()){
+            radioPage.rdoThreeThree.click();
+        }
+
     }
 
 }
