@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pageObjects.ButtonPage;
 import pageObjects.HomePage;
@@ -7,7 +8,7 @@ import utils.BaseClass;
 
 public class Button_Test extends BaseClass {
 
-    @Test
+    @Test(groups = "regression")
     public void buttonFeatures(){
 
         HomePage homePage = new HomePage(driver);

@@ -8,7 +8,7 @@ import utils.BaseClass;
 
 public class Checkbox_Test extends BaseClass {
 
-    @Test
+    @Test(groups = "regression")
     public void checkboxFeatures(){
         HomePage homePage = new HomePage(driver);
         CheckboxPage checkboxPage = new CheckboxPage(driver);
@@ -23,7 +23,5 @@ public class Checkbox_Test extends BaseClass {
             }
         }
         wait(3000);
-
     }
-
 }
