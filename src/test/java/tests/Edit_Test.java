@@ -19,6 +19,5 @@ public class Edit_Test extends BaseClass {
         editPage.txt_Clear.clear();
         System.out.println("Is the field disabled: " + editPage.txt_Disabled.getAttribute("disabled"));
 
-
     }
 }
